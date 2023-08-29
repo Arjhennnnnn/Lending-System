@@ -39,7 +39,6 @@ class LoanController extends Controller
 
     }
 
-
     public function store(Request $request){
         $attributes = $request->validate([
             'min_amount' => 'required',
@@ -49,5 +48,19 @@ class LoanController extends Controller
         $attributes['user_id'] = Auth::user()->id;
         CreateLoan::create($attributes);
         return back();
+    }
+
+    public function show($id){
+        $loan = CreateLoan::find($id);
+        $interests = Interest::where('create_loan_id',$id)->get();
+        return view('loan.get',
+        [
+            'loan' => $loan,
+            'interests' => $interests
+        ]);
+    }
+
+    public function get(Request $request){
+        dd($request);
     }
 }

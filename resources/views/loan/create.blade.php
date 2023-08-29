@@ -28,8 +28,6 @@
                     <x-form.input name="min_amount"/>
                     <x-form.input name="max_amount"/>
                     <x-form.textarea name="description"/>
-
-                    
                     <button type="submit" class="btn fw-bold btn-primary mt-3 w-100">Create Loan</button>
         
                     <a href="/create/interest/{{ $loan }}" type="button" class="btn fw-bold btn-white text-primary mt-3 w-100">Add Interest</type=></a>

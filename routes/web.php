@@ -30,12 +30,16 @@ Route::controller(UserController::class)->group(function(){
 
 Route::controller(LoanController::class)->group(function(){
     Route::get('/home','index');
+    Route::get('/show/{id}/','show');    
     Route::get('/create/loan','create');
-    Route::post('/store/loan','store');    
+    Route::post('/store/loan','store');   
+    Route::post('/get/loan','get');   
+
+
 });
 
 Route::controller(InterestController::class)->group(function(){
-    Route::get('create/interest/{id}','create');
+    Route::get('/create/interest/{id}','create');
     Route::post('/store/interest/{id}','store');    
 
 });

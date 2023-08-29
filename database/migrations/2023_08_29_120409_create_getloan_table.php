@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('interests', function (Blueprint $table) {
+        Schema::create('getloan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('create_loan_id');
-            $table->string('month');
-            $table->string('interest');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('create_loan_id')->constrained('create_loans');
+            $table->string('amount');
+            $table->string('month_interest');
+            $table->string('purpose');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('interests');
+        Schema::dropIfExists('getloan');
     }
 };
