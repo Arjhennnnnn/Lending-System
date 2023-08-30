@@ -3,7 +3,6 @@
     <div class="row">
     <x-sidebar/>
     <div class="col-10 ps-3 pe-5 mt-2">
-       
     @foreach ($users as $user)
 
     @foreach ($user->loans as $loan)

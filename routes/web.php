@@ -33,7 +33,14 @@ Route::controller(LoanController::class)->group(function(){
     Route::get('/show/{id}/','show');    
     Route::get('/create/loan','create');
     Route::post('/store/loan','store');   
-    Route::post('/get/loan','get');   
+    Route::post('/get/loan','get');  
+    Route::post('/store/get/loan/','storegetloan');  
+
+    
+    Route::get('/loan/list','list');
+    Route::get('/request/loan','request');
+    Route::get('loan/data/{id}','request_data');
+
 
 
 });
@@ -41,7 +48,6 @@ Route::controller(LoanController::class)->group(function(){
 Route::controller(InterestController::class)->group(function(){
     Route::get('/create/interest/{id}','create');
     Route::post('/store/interest/{id}','store');    
-
 });
 
 

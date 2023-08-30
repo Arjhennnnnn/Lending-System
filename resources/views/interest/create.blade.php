@@ -23,10 +23,10 @@
                     @csrf
                     <div class="row">
                         <div class="col-9">
-                            <x-form.input name="month"/>
+                            <x-form.input name="month" type="number"/>
                         </div>
                         <div class="col-3">
-                            <x-form.input name="interest"/>
+                            <x-form.input name="interest" type="number"/>
                         </div>
                     </div>
                     <button type="submit" class="btn fw-bold btn-primary mt-3 w-100">Add Interest</button>

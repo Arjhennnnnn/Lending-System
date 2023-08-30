@@ -28,6 +28,7 @@ class UserController extends Controller
             'email' => ['required','email',Rule::unique('users','email')],
             'password' => 'required|confirmed|min:8',
         ]);
+
         $user = User::create($attributes);
         UserDetail::create([
         'user_id' => $user->id,

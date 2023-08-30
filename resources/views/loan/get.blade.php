@@ -8,9 +8,17 @@
             <div class="mb-3 ps-1 fw-bold h3">Get Loan</div>
                 <form method="post" action="/get/loan" method="post">
                     @csrf
-                    <input type="hidden" value="{{ $loan->user_id }}" name="user_id">
-                    <input type="hidden" value="{{ $loan->id }}" name="loan_id">
+                    <input type="hidden" value="{{ $loan->user_id }}" name="lender_id">
+                    <input type="hidden" value="{{ $loan->id }}" name="create_loan_id">
+                    <input type="hidden" value="{{ $loan->max_amount }}" name="max">
+                    <input type="hidden" value="{{ $loan->min_amount }}" name="min">
+
                     <x-form.input name="amount"/>
+                    @if(session()->has('message'))
+                        <small class="text-danger">{{ session('message') }}</small>
+                        
+                    @endif
+
                     <select class="form-select form-select-md my-2" name="month_interest">
                         @foreach ($interests as $interest)
                             <option value="{{ $interest->month }}{{ $interest->interest }}">{{ $interest->month }} month/s and {{ $interest->interest }}% interest</option>
