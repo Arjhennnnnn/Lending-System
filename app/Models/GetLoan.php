@@ -20,4 +20,8 @@ class GetLoan extends Model
     public function stats(){
         return $this->belongsTo(Stat::class,'status');
     }
+
+    public function payments(){
+        return $this->hasMany(Payment::class);
+    }
 }

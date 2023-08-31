@@ -68,6 +68,10 @@
         </ul>
       </div>
       <!-- Avatar -->
+      
+      @auth
+        <p class="fw-bold pt-2 pe-2"> {{ Auth::user()->name }}</p>
+      @endauth
       <div class="dropdown">
         <a
           class="dropdown-toggle d-flex align-items-center hidden-arrow"
@@ -90,7 +94,7 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" href="#">Profile</a>
           </li>
           <li>
             <a class="dropdown-item" href="#">Settings</a>
@@ -102,7 +106,9 @@
             </form>
           </li>
         </ul>
+
       </div>
+
     </div>
     <!-- Right elements -->
   </div>

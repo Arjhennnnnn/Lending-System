@@ -16,11 +16,11 @@
     <h5 class="text-center bg-primary bg-opacity-75 py-2 fw-bold">Payment Details</h5>
 
     <div class="row ms-2 mt-3">
-        <p class="m-0">Amount : ₱ {{ $attributes['amount'] }}</p>
-        <p class="m-0">Interest : {{ $attributes['interest'] }} %</p>
-        <p class="m-0">Monthly Payment : ₱ {{ $attributes['monthly_payment'] }}</p>
-        <p class="m-0">Month : {{ $attributes['month'] }} month/s</p>
-        <p class="m-0">Date Released : {{ $attributes['date_released'] }}</p>
+        <p class="m-0">Amount : ₱ {{ $get['amount'] }}</p>
+        <p class="m-0">Interest : {{ $get['interest'] }} %</p>
+        <p class="m-0">Monthly Payment : ₱ {{ $get['monthly_payment'] }}</p>
+        <p class="m-0">Month : {{ $get['month'] }} month/s</p>
+        <p class="m-0">Date Released : {{ $get['date_released'] }}</p>
     </div>
 
 
@@ -41,7 +41,7 @@
                 @foreach ($datas as $data)
                 <tr>
                     <td> <p class="fw-bold mb-1">{{$data}}</p> </td>
-                    <td> <p class="mb-0">₱ {{ $attributes['monthly_payment'] }}</p> </td>
+                    <td> <p class="mb-0">₱ {{ $get['monthly_payment'] }}</p> </td>
                 </tr>
                 @endforeach  
                 </tbody>
@@ -49,18 +49,12 @@
             </div>
             </div>
 
-            <form class="row" method="post" action="/store/get/loan/">
+            <form class="row" method="post" action="/approve/loan/{{ $get['id'] }}">
                 @csrf
-                <input type="hidden" name="amount" value="{{$attributes['amount']}}">
-                <input type="hidden" name="purpose" value="{{$attributes['purpose']}}">
-                <input type="hidden" name="month" value="{{$attributes['month']}}">
-                <input type="hidden" name="interest" value="{{$attributes['interest']}}">
-                <input type="hidden" name="user_id" value="{{$attributes['user_id']}}">
-                <input type="hidden" name="lender_id" value="{{$attributes['lender_id']}}">
-                <input type="hidden" name="create_loan_id" value="{{$attributes['create_loan_id']}}">
-                <input type="hidden" name="status" value="{{$attributes['status']}}">
+                <input type="hidden" name="monthly_payment" value="{{ $get['monthly_payment'] }}">
+                <input type="hidden" name="month" value="{{ $get['month'] }}">
                 <div class="col-2 offset-10 my-2">
-                    <button type="submit" class="btn btn-primary w-100 mt-3">Get Loan</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-3">Approve Loan</button>
                 </div>
             </form>
     </div>

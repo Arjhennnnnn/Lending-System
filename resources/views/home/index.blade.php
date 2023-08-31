@@ -1,8 +1,10 @@
 <x-layout>
     <x-navbar/>
+
     <div class="row">
     <x-sidebar/>
-    <div class="col-10 ps-3 pe-5 mt-2">
+    <div class="col-10 ps-3 pe-5 mt-2 PostFix">
+    <x-alert/>
     @foreach ($users as $user)
 
     @foreach ($user->loans as $loan)

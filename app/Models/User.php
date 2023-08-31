@@ -53,4 +53,9 @@ class User extends Authenticatable
     public function getloans(){
         return $this->hasManyThrough(GetLoan::class, CreateLoan::class);
     }
+
+
+    public function detail(){
+        return $this->hasOne(UserDetail::class,'user_id','id');
+    }
 }
